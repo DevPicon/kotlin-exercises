@@ -1,25 +1,20 @@
 
-/**
- * A simple lambda
- */
-val simpleLambda = {
-    print("hello world")
+val simpleLambda = { println("Hello world!") }
+
+val lambda = { x:Int,y:Int -> x + y }
+
+val explicitLambda: (Int, Int) -> Int = { x,y ->
+    x * y
 }
 
-/**
- * Explicit lambda type
- */
-val explicitLambda : () -> Unit = {
-    print("hello world")
-}
-
-/**
- * Lambda with return value
- */
-val squareLambda : (Int) -> Int = {
-    x -> x * x
-}
+val suma: Int.(Int) -> Int = Int::plus
 
 fun main(args: Array<String>) {
- print(squareLambda(5))
+   println(lambda(2,4))
+    println(explicitLambda(2,4))
+    simpleLambda()
+
+    println(suma(3,5))
+    println(suma.invoke(3,5))
+    println(3.suma(5))
 }
